@@ -1,7 +1,7 @@
 const form = document.getElementById("form-contact");
-const cellNome = [];
+const cellName = [];
 const cellPhone = [];
-let line = "";
+let lines = "";
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -13,9 +13,11 @@ form.addEventListener('submit', function (e) {
 function addContact() {
     const inputNameContact = document.getElementById('nome-contact');
     const inputTell = document.getElementById('tell-contact');
+
+    lines = "";
     
-    cellNome.push (inputNameContact.value);
-    Contact.push(parseInt(inputTell.value));
+    cellName.push(inputNameContact.value);
+    cellPhone.push(parseFloat(inputTell.value));
 
     let line = `<tr>`;
     line +=`<td> ${inputNameContact.value}</td>`;
@@ -27,7 +29,7 @@ function addContact() {
     inputTell.value = "";
 }
 
-function  updateContact () {
-    const table = document.querySelector('tbody');
-    table.innerHTML = lines;
+function  updateContact() {
+    const table = document.getElementById('tb-contact');
+    table.innerHTML += lines;
 }
